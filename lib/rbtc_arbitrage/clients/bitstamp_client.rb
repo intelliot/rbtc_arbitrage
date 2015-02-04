@@ -3,6 +3,12 @@ module RbtcArbitrage
     class BitstampClient
       include RbtcArbitrage::Client
 
+      # return a symbol as the name
+      # of this exchange
+      def exchange
+        :bitstamp
+      end
+
       def balance
         return @balance if @balance
         balances = Bitstamp.balance
@@ -18,9 +24,7 @@ module RbtcArbitrage
         end
       end
 
-      def exchange
-        :bitstamp
-      end
+      
 
       def price action
         return @price if @price
